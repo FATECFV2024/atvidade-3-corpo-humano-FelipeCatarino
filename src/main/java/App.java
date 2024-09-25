@@ -1,30 +1,32 @@
 package main.java;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class App {
-        //Comentário
 
-    public static void funcao_teste (){
-        //Biblioteca para entrada de dados
-        Scanner ler = new Scanner(System.in); 
-
-        //variável local a
-        String v2;
-        int v1;
-
-        System.out.println("Comando de Saida de Dados");
-        
-        System.out.printf("Informe uma palavra: ");
-        v2 = ler.next();
-
-        System.out.printf("Informe um número: ");
-        v1 = ler.nextInt();
-
-        System.out.printf(v2+" "+v1);
-    }
     public static void main(String[] args) throws Exception {
-        funcao_teste();
+        Locale.setDefault(Locale.US);
+        //Biblioteca para entrada de dados
+        Scanner sc = new Scanner(System.in); 
+        
+        System.out.print("Entre com a massa: ");
+        double massa = sc.nextDouble();
 
+        System.out.print("Entre com a altura: ");
+        double altura = sc.nextDouble();
+
+        CorpoHumano cp = new CorpoHumano(massa , altura);
+
+        System.out.println(cp.calcIMC());
+
+        sc.close();
 
     }
 }
+// RESPOSTAS
+/*
+ * 1° A não é possível alterar diretamente  c1.massa = "2"; pois o atributo massa é privado;
+ * 2° Ao alterar o o acesso para oublic é possível fazer alterações diretamente;
+ * 3° O tipo private não permite ter acesso além da própria classe, então retorna erro;
+ * 
+ */
